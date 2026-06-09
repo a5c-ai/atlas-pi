@@ -1,0 +1,57 @@
+{
+  "name": "@a5c-ai/atlas-pi",
+  "version": "5.0.1-staging.28347f861706",
+  "type": "module",
+  "description": "Turn a stated need into a full system design by mining the Atlas knowledge graph. — pi",
+  "keywords": [
+    "pi",
+    "atlas",
+    "orchestration"
+  ],
+  "pi": {
+    "extensions": [
+      "./extensions"
+    ],
+    "skills": [
+      "./skills"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "scripts": {
+    "test": "npm run validate:ci",
+    "test:integration": "node --test test/integration.test.js",
+    "test:packaged-install": "node test/packaged-install.test.cjs",
+    "validate:ci": "npm run test:integration && npm run test:packaged-install",
+    "deploy": "npm publish --access public",
+    "deploy:staging": "npm publish --access public --tag staging"
+  },
+  "bin": {
+    "atlas-pi": "bin/cli.cjs"
+  },
+  "files": [
+    "bin/",
+    "package.json",
+    "versions.json",
+    "README.md",
+    "AGENTS.md",
+    "extensions/",
+    "skills/",
+    "commands/",
+    "scripts/"
+  ],
+  "author": "a5c.ai",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a5c-ai/atlas-pi.git"
+  },
+  "homepage": "https://github.com/a5c-ai/atlas-pi#readme",
+  "bugs": {
+    "url": "https://github.com/a5c-ai/atlas-pi/issues"
+  }
+}
