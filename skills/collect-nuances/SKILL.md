@@ -5,7 +5,13 @@ description: Collect nuances — gather domain-specific edge cases, constraints,
 
 # collect-nuances
 
-Invoke the babysitter:babysit skill (using the Skill tool) and follow its instructions (SKILL.md) to run the atlas process `atlas-collect-nuances`. Pass the user arguments below as the run's stated need. Then continue executing the returned instructions in this same turn; do not stop after the Skill tool returns. Use the atlas skill and the Atlas MCP tools (mcp__atlas__atlas_public_*) for all graph queries.
+Invoke the babysitter:babysit skill (using the Skill tool) and follow its instructions (SKILL.md). Run the PRE-AUTHORED atlas process bundled with this plugin — do NOT interview the user or author a new process. Create the run directly from this bundled entry and iterate it to completion:
+
+```
+${PLUGIN_ROOT}/processes/atlas-collect-nuances.mjs#process
+```
+
+(e.g. `babysitter run:create --process-id atlas-collect-nuances --entry "${PLUGIN_ROOT}/processes/atlas-collect-nuances.mjs#process" --harness <this-harness>`, then iterate.) Pass the user arguments below as the run's stated need / process inputs. Continue executing in this same turn; do not stop after the Skill tool returns. Use the atlas skill and the Atlas MCP tools (mcp__atlas__atlas_public_*) for all graph queries.
 
 User arguments for this command:
 
