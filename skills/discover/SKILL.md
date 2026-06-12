@@ -1,6 +1,6 @@
 ---
 name: discover
-description: Interactive systems discovery — turn a stated need into a full system design via the Atlas graph.
+description: Scan your real systems (Azure + repos + dirs) and map them into a layered, source-cited atlas; enrich against the Atlas graph (secondary).
 ---
 
 # discover
@@ -11,7 +11,9 @@ Invoke the babysitter:babysit skill (using the Skill tool) and follow its instru
 ${PLUGIN_ROOT}/processes/atlas-systems-discovery.mjs#process
 ```
 
-(e.g. `babysitter run:create --process-id atlas-systems-discovery --entry "${PLUGIN_ROOT}/processes/atlas-systems-discovery.mjs#process" --harness <this-harness>`, then iterate.) Pass the user arguments below as the run's stated need / process inputs. Continue executing in this same turn; do not stop after the Skill tool returns. Use the atlas skill and the Atlas MCP tools (mcp__atlas__atlas_public_*) for all graph queries.
+(e.g. `babysitter run:create --process-id atlas-systems-discovery --entry "${PLUGIN_ROOT}/processes/atlas-systems-discovery.mjs#process" --harness <this-harness>`, then iterate.) Pass the user arguments below as the run's stated need / process inputs. Continue executing in this same turn; do not stop after the Skill tool returns.
+
+This process is SCAN-FIRST: it parses the stated sources, then runs READ-ONLY scans of the user's REAL systems — Azure via `az` (Bash), git repos, and local directories — and synthesizes a cross-linked, source-cited atlas where every item cites a real resource id / RG / file path. The Atlas knowledge graph (mcp__atlas__atlas_public_*) is used only as SECONDARY enrichment/comparison, never as the primary content. Never invent resource ids or file paths; only scan the sources named in the arguments.
 
 User arguments for this command:
 

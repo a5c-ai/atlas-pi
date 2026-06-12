@@ -1,6 +1,6 @@
 ---
 name: collect-nuances
-description: Collect nuances — gather domain-specific edge cases, constraints, and gotchas from the Atlas graph.
+description: Collect the REAL constraints/gotchas of your scanned systems (IaC drift, orphaned resources, RBAC quirks, region splits), each cited; Atlas-graph comparison secondary.
 ---
 
 # collect-nuances
@@ -11,7 +11,9 @@ Invoke the babysitter:babysit skill (using the Skill tool) and follow its instru
 ${PLUGIN_ROOT}/processes/atlas-collect-nuances.mjs#process
 ```
 
-(e.g. `babysitter run:create --process-id atlas-collect-nuances --entry "${PLUGIN_ROOT}/processes/atlas-collect-nuances.mjs#process" --harness <this-harness>`, then iterate.) Pass the user arguments below as the run's stated need / process inputs. Continue executing in this same turn; do not stop after the Skill tool returns. Use the atlas skill and the Atlas MCP tools (mcp__atlas__atlas_public_*) for all graph queries.
+(e.g. `babysitter run:create --process-id atlas-collect-nuances --entry "${PLUGIN_ROOT}/processes/atlas-collect-nuances.mjs#process" --harness <this-harness>`, then iterate.) Pass the user arguments below as the run's stated need / process inputs. Continue executing in this same turn; do not stop after the Skill tool returns.
+
+This process is SCAN-FIRST: it parses the stated sources, then runs READ-ONLY scans (Bash `az` + git/fs) of the user's REAL systems to collect actual constraints/gotchas/edge-cases — IaC-as-survey drift, orphaned cloud resources, RBAC/visibility quirks, region splits, tenant/descriptor mismatches, externally-deployed systems with no in-repo pipeline — each cited to its real resource id / RG / file path (or a concrete missing-thing observation). The Atlas knowledge graph (mcp__atlas__atlas_public_*) is used only as SECONDARY comparison. Never invent constraints; only inspect the sources named in the arguments.
 
 User arguments for this command:
 

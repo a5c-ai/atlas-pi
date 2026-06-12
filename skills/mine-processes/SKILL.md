@@ -1,6 +1,6 @@
 ---
 name: mine-processes
-description: Process mining — discover the processes/workflows a domain requires from the Atlas graph.
+description: Mine the REAL processes in your sources (CI/CD, npm scripts, IaC, Dockerfiles, .a5c, cron), each cited to its file; Atlas-graph comparison secondary.
 ---
 
 # mine-processes
@@ -11,7 +11,9 @@ Invoke the babysitter:babysit skill (using the Skill tool) and follow its instru
 ${PLUGIN_ROOT}/processes/atlas-process-mining.mjs#process
 ```
 
-(e.g. `babysitter run:create --process-id atlas-process-mining --entry "${PLUGIN_ROOT}/processes/atlas-process-mining.mjs#process" --harness <this-harness>`, then iterate.) Pass the user arguments below as the run's stated need / process inputs. Continue executing in this same turn; do not stop after the Skill tool returns. Use the atlas skill and the Atlas MCP tools (mcp__atlas__atlas_public_*) for all graph queries.
+(e.g. `babysitter run:create --process-id atlas-process-mining --entry "${PLUGIN_ROOT}/processes/atlas-process-mining.mjs#process" --harness <this-harness>`, then iterate.) Pass the user arguments below as the run's stated need / process inputs. Continue executing in this same turn; do not stop after the Skill tool returns.
+
+This process is SCAN-FIRST: it parses the stated sources, then runs READ-ONLY scans (Bash) of the REAL repos/dirs/cloud automation and mines the processes that actually exist — `.github/workflows`, npm scripts, terraform/bicep/helm/k8s, Dockerfiles, babysitter `.a5c` processes, and cron/scheduled jobs — each cited to its real file path. The Atlas knowledge graph (mcp__atlas__atlas_public_*) is used only as SECONDARY comparison. Never invent files or processes; only mine the sources named in the arguments.
 
 User arguments for this command:
 
