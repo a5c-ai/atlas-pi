@@ -1,6 +1,6 @@
 {
   "name": "@a5c-ai/atlas-pi",
-  "version": "5.1.1-staging.d77cc7fd54ae",
+  "version": "5.1.1-staging.0e42f52926ab",
   "type": "module",
   "description": "Turn a stated need into a full system design by mining the Atlas knowledge graph. — pi",
   "keywords": [
