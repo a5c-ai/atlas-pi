@@ -104,7 +104,7 @@ function ensureMarketplaceEntry(marketplacePath, pluginRoot) {
     name: PLUGIN_NAME,
     source: relSource,
     description: "Turn a stated need into a full system design by mining the Atlas knowledge graph.",
-    version: "6.0.1-staging.5a194f2ccb0e",
+    version: "6.0.1-staging.f8aae93c2dbc",
     author: { name: "a5c.ai" },
   };
   if (idx >= 0) marketplace.plugins[idx] = entry;
